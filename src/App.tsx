@@ -45,17 +45,17 @@ function App() {
         {/* Header */}
         <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-blue-600 rounded-xl">
                   <Plane className="w-6 h-6 text-white" />
                 </div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                <h1 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                   Travel Explorer
                 </h1>
               </div>
-              <div className="flex items-center space-x-4">
-                <nav className="flex space-x-1">
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                <nav className="flex space-x-1 sm:space-x-1">
                   <button
                     onClick={() => setActiveTab('explore')}
                     className={`px-4 py-2 rounded-xl font-medium transition-colors ${
@@ -64,8 +64,8 @@ function App() {
                         : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                     }`}
                   >
-                    <Home className="w-4 h-4 inline mr-2" />
-                    Explore
+                    <Home className="w-4 h-4 inline mr-0 sm:mr-2" />
+                    <span className="hidden sm:inline">Explore</span>
                   </button>
                   <button
                     onClick={() => setActiveTab('favorites')}
@@ -75,8 +75,8 @@ function App() {
                         : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                     }`}
                   >
-                    <Heart className="w-4 h-4 inline mr-2" />
-                    Favorites
+                    <Heart className="w-4 h-4 inline mr-0 sm:mr-2" />
+                    <span className="hidden sm:inline">Favorites</span>
                   </button>
                 </nav>
                 <ThemeToggle />
@@ -110,15 +110,15 @@ function App() {
               {searchQuery && (
                 <div className="mb-12">
                   {/* Back Button and Search Bar */}
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
                     <button
                       onClick={handleBackToHome}
-                      className="flex items-center space-x-2 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-xl transition-colors duration-200 shadow-sm"
+                      className="flex items-center justify-center space-x-2 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-xl transition-colors duration-200 shadow-sm w-full sm:w-auto"
                     >
                       <ArrowLeft className="w-4 h-4 text-gray-600 dark:text-gray-400" />
                       <span className="text-gray-700 dark:text-gray-300 font-medium">Back to Home</span>
                     </button>
-                    <div className="flex-1 max-w-md ml-8">
+                    <div className="w-full sm:flex-1 sm:max-w-md sm:ml-8">
                       <SearchBar
                         onSearch={handleSearch}
                         isLoading={photosLoading || weatherLoading}
