@@ -22,16 +22,22 @@ function App() {
   const handleSearch = (query: string) => {
     setSearchQuery(query);
     setActiveTab('explore');
+    // Scroll to top when searching
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDestinationSelect = (destination: string) => {
     setSearchQuery(destination);
     setActiveTab('explore');
+    // Scroll to top when selecting a destination
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToHome = () => {
     setSearchQuery('');
     setActiveTab('explore');
+    // Scroll to top when going back to home
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   return (
     <ErrorBoundary>
