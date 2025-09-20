@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Photo } from '../types';
-import { User, Heart, Download, ExternalLink } from 'lucide-react';
+import { User, Heart, Download, ExternalLink, X } from 'lucide-react';
 
 interface PhotoGalleryProps {
   photos: Photo[];
@@ -70,6 +70,13 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, loading }) =
             className="relative max-w-4xl w-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
+            <button
+              onClick={() => setSelectedPhoto(null)}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
+              title="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
             <img
               src={selectedPhoto.urls.regular}
               alt={selectedPhoto.alt_description || 'Travel destination'}
